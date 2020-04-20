@@ -5,74 +5,38 @@ public class MenuManager{
 	public static void main(String[] args) {
 		
 		Scanner input = new Scanner(System.in);
-		
-		int select = 5;
+		AccountManager accountManager = new AccountManager(input);
 		
 		while(true) {
-			
 			System.out.println("*** Account Management System Menu ***");
 			System.out.printf("%26s\n","1.Add Account");
 			System.out.printf("%29s\n","2.Delete Account");
 			System.out.printf("%27s\n","3.Edit Account");
-			System.out.printf("%32s\n","4.View Account List");
-			System.out.printf("%29s\n","5.Show Main Menu");
-			System.out.printf("%19s\n","6.Exit");
-			System.out.println("Enter One Number Between 1 - 6 : ");
+			System.out.printf("%33s\n","4.View Accounts List");
+			System.out.printf("%19s\n","5.Exit");
+			System.out.println("Enter One Number Between 1 - 5 : ");
 			
-			select = input.nextInt();
+			int select = input.nextInt();
 			
 			if (select == 1) {
-				AddAccount();
+				accountManager.CreateAccount();
 			}
 			else if (select == 2) {
-				DeleteAccount();
+				accountManager.DeleteAccount();
 			}
 			else if (select == 3) {
-				EditAccount();
+				accountManager.EditAccount();
 			}
 			else if (select == 4) {
-				ViewAccount();
+				accountManager.ViewAccounts();
 			}
-			
-			else if (select == 5)
-				continue;
-			else
+			else if (select == 5) {
 				break;
+			}
+			else {
+				System.out.println("Error! Please enter a number between 1 and 5!");
+				continue;
+			}
 		}
-		
-	}
-	
-	public static void AddAccount() {
-		
-		Scanner input = new Scanner(System.in);
-		System.out.println("Account Number : ");
-		String AccountNumber = input.nextLine();
-		System.out.println("Account Registration Completed!");
-		
-	}
-	
-	public static void DeleteAccount() {
-		
-		Scanner input = new Scanner(System.in);
-		System.out.println("Account Number : ");
-		String AccountNumber = input.nextLine();
-		System.out.println("Account Deletion Completed!");
-		
-	}
-	
-	public static void EditAccount() {
-		
-		Scanner input = new Scanner(System.in);
-		System.out.println("Account Numbert : ");
-		String AccountNumber = input.nextLine();
-		System.out.println("A New Account Number : ");
-		System.out.println("Account Modification Completed!");
-		
-	}
-	
-	public static void ViewAccount() {
-		
-		System.out.println("*** Current Account List ***");
-		
 	}
 }
